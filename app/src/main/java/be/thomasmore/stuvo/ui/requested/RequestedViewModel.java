@@ -1,16 +1,16 @@
-package be.thomasmore.stuvo.ui.share;
+package be.thomasmore.stuvo.ui.requested;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class RequestedViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public RequestedViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is send fragment");
     }
 
     public LiveData<String> getText() {

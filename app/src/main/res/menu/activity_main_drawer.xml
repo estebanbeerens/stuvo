@@ -9,30 +9,39 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/menu_friends" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/hr_0"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_previous"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_previous" />
+        <item
+            android:id="@+id/nav_requested"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_requested" />
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_new" />
+    </group>
+
+    <group
+        android:id="@+id/hr_1"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/menu_logout" />
+    </group>
+<!--    <item android:title="Friends">-->
+<!--        <menu>-->
+<!--        </menu>-->
+<!--    </item>-->
 
 </menu>

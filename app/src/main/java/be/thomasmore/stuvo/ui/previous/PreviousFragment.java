@@ -1,4 +1,4 @@
-package be.thomasmore.stuvo.ui.share;
+package be.thomasmore.stuvo.ui.previous;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import be.thomasmore.stuvo.R;
 
-public class ShareFragment extends Fragment {
+public class PreviousFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private PreviousViewModel previousViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        previousViewModel =
+                ViewModelProviders.of(this).get(PreviousViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_previous, container, false);
+        final TextView textView = root.findViewById(R.id.text_previous);
+        previousViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

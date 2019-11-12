@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Stuvo request</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Stuvo request</string>
+    <string name="nav_header_subtitle">Mobile Development - Team Maes</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_previous">Previous activities</string>
+    <string name="menu_requested">Requested activities</string>
+    <string name="menu_new">New request</string>
+    <string name="menu_friends">Friends</string>
+    <string name="menu_logout">Log out</string>
+</resources>
