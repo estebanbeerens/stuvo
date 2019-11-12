@@ -1,5 +1,6 @@
 package be.thomasmore.stuvo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+
+import be.thomasmore.stuvo.ui.previous.PreviousFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,4 +69,9 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+//    public void navToPrevious_fragment(View v) {
+//        Intent intent = new Intent(this, PreviousFragment.class);
+//        startActivity(intent);
+//    }
 }

@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_menu_friends"
             android:title="@string/menu_friends" />
     </group>
 
@@ -19,15 +19,16 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_previous"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_previous" />
+            android:icon="@drawable/ic_menu_previous"
+            android:title="@string/menu_previous"/>
+<!--            android:onClick="navToPrevious_fragment"-->
         <item
             android:id="@+id/nav_requested"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_requested"
             android:title="@string/menu_requested" />
         <item
             android:id="@+id/nav_new"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_new"
             android:title="@string/menu_new" />
     </group>
 
@@ -36,12 +37,8 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_menu_logout"
             android:title="@string/menu_logout" />
     </group>
-<!--    <item android:title="Friends">-->
-<!--        <menu>-->
-<!--        </menu>-->
-<!--    </item>-->
 
 </menu>
