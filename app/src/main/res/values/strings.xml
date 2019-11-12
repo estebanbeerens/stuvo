@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Stuvo aanvraag</string>
+    <string name="app_name">Stuvo Aanvraag</string>
     <string name="navigation_drawer_open">Open navigatiebalk</string>
     <string name="navigation_drawer_close">Sluit navigatiebalk</string>
-    <string name="nav_header_title">Stuvo aanvraag</string>
+    <string name="nav_header_title">Stuvo Aanvraag</string>
     <string name="nav_header_subtitle">Mobile Development - Team Maes</string>
     <string name="nav_header_desc">Navigatie header</string>
     <string name="action_settings">Instellingen</string>
