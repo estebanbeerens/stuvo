@@ -13,6 +13,6 @@ public class RequestedFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_requested2,container, false);
+        return inflater.inflate(R.layout.fragment_requested,container, false);
     }
 }
