@@ -16,7 +16,7 @@
 
     <group
         android:id="@+id/hr_0"
-        android:checkableBehavior="none">
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_previous"
             android:icon="@drawable/ic_menu_previous"
