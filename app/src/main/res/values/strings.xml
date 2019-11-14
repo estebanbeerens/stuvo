@@ -13,4 +13,8 @@
     <string name="menu_new">Nieuwe aanvraag</string>
     <string name="menu_friends">Vrienden</string>
     <string name="menu_logout">Uitloggen</string>
+
+    <string name="home_tab_developers">Ontwikkelaars</string>
+    <string name="home_tab_application">Applicatie</string>
+    <string name="home_tab_manual">Handleiding</string>
 </resources>
