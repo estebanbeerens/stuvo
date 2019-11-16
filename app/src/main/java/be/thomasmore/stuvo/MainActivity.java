@@ -26,6 +26,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import be.thomasmore.stuvo.Fragments.FriendsFragment;
+import be.thomasmore.stuvo.Fragments.HomeFragment;
+import be.thomasmore.stuvo.Fragments.NewFragment;
+import be.thomasmore.stuvo.Fragments.PreviousFragment;
+import be.thomasmore.stuvo.Fragments.RequestedFragment;
+
 //import android.view.Menu;
 
 //import be.thomasmore.stuvo.ui.previous.PreviousFragment;

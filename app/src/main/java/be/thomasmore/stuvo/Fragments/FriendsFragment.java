@@ -1,4 +1,4 @@
-package be.thomasmore.stuvo;
+package be.thomasmore.stuvo.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import be.thomasmore.stuvo.R;
 
 public class FriendsFragment extends Fragment {
 

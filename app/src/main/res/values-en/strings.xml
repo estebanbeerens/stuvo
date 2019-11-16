@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Stuvo Request</string>
+    <string name="app_name">Stuvo Activities</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Stuvo Request</string>
+    <string name="nav_header_title">Stuvo Activities</string>
     <string name="nav_header_subtitle">Mobile Development - Team Maes</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -17,4 +17,12 @@
     <string name="home_tab_developers">Developers</string>
     <string name="home_tab_application">Application</string>
     <string name="home_tab_manual">Manual</string>
+
+    <string name="menu_new_date">Date:</string>
+    <string name="menu_new_address">Address:</string>
+    <string name="menu_new_price">Estimated total price:</string>
+    <string name="menu_new_amountPlayers">Estimated amount of persons:</string>
+    <string name="menu_new_description">Description:</string>
+    <string name="menu_new_campus">Campus:</string>
+    <string name="menu_new_button">Request</string>
 </resources>
