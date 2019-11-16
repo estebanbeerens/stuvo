@@ -41,7 +41,7 @@
                     android:textSize="18sp" />
 
                 <DatePicker
-                    android:id="@+id/date"
+                    android:id="@+id/newFragmentDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:calendarViewShown="false"
@@ -55,7 +55,7 @@
                     android:text="@string/menu_new_address" />
 
                 <EditText
-                    android:id="@+id/address"
+                    android:id="@+id/newFragmentAddress"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/price"
+                        android:id="@+id/newFragmentPrice"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:inputType="text" />
@@ -90,7 +90,7 @@
                     android:text="@string/menu_new_amountPlayers" />
 
                 <EditText
-                    android:id="@+id/amountPlayers"
+                    android:id="@+id/newFragmentAmountPlayers"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -102,7 +102,7 @@
                     android:text="@string/menu_new_description" />
 
                 <EditText
-                    android:id="@+id/description"
+                    android:id="@+id/newFragmentDescription"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -114,7 +114,7 @@
                     android:text="@string/menu_new_campus" />
 
                 <Spinner
-                    android:id="@+id/type"
+                    android:id="@+id/newFragmentCampus"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:drawSelectorOnTop="true" />
@@ -122,10 +122,12 @@
 
                 <!--     button     -->
                 <Button
+                    android:id="@+id/newFragmentrequestButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/menu_new_button"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:onClick="newFragmentrequestButton_onClick"/>
 
             </LinearLayout>
         </LinearLayout>

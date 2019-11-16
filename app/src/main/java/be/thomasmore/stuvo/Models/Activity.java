@@ -5,10 +5,10 @@ import java.time.LocalDate;
 
 public class Activity {
     private long id;
-    private LocalDate date;
+    private String date;
     private String address;
     private int price;
-    private int amountOfPersons;
+    private int amountOfStudents;
     private String description;
     private String campus;
     private boolean accepted;
@@ -18,12 +18,12 @@ public class Activity {
 
     }
 
-    public Activity(long id, LocalDate date, String address, int price, int amountOfPersons, String description, String campus, boolean accepted, long studentId) {
+    public Activity(long id, String date, String address, int price, int amountOfStudents, String description, String campus, boolean accepted, long studentId) {
         this.id = id;
         this.date = date;
         this.address = address;
         this.price = price;
-        this.amountOfPersons = amountOfPersons;
+        this.amountOfStudents = amountOfStudents;
         this.description = description;
         this.campus = campus;
         this.accepted = accepted;
@@ -38,11 +38,11 @@ public class Activity {
         this.id = id;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -62,12 +62,12 @@ public class Activity {
         this.price = price;
     }
 
-    public int getAmountOfPersons() {
-        return amountOfPersons;
+    public int getAmountOfStudents() {
+        return amountOfStudents;
     }
 
-    public void setAmountOfPersons(int amountOfPersons) {
-        this.amountOfPersons = amountOfPersons;
+    public void setAmountOfStudents(int amountOfStudents) {
+        this.amountOfStudents = amountOfStudents;
     }
 
     public String getDescription() {
