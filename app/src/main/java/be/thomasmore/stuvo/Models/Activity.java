@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class Activity {
     private long id;
+    private String name;
     private String date;
     private String address;
     private int price;
@@ -18,8 +19,9 @@ public class Activity {
 
     }
 
-    public Activity(long id, String date, String address, int price, int amountOfStudents, String description, String campus, boolean accepted, long studentId) {
+    public Activity(long id, String name, String date, String address, int price, int amountOfStudents, String description, String campus, boolean accepted, long studentId) {
         this.id = id;
+        this.name = name;
         this.date = date;
         this.address = address;
         this.price = price;
@@ -36,6 +38,14 @@ public class Activity {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDate() {

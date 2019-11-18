@@ -27,6 +27,7 @@ public class JsonHelper {
                 if (jsonObjectActivity.getBoolean("accepted")){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
+                    activity.setName(jsonObjectActivity.getString("name"));
                     activity.setDate(jsonObjectActivity.getString("date"));
                     activity.setAddress(jsonObjectActivity.getString("address"));
                     activity.setPrice(jsonObjectActivity.getInt("price"));
@@ -57,6 +58,7 @@ public class JsonHelper {
                 if (!jsonObjectActivity.getBoolean("accepted")){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
+                    activity.setName(jsonObjectActivity.getString("name"));
                     activity.setDate(jsonObjectActivity.getString("date"));
                     activity.setAddress(jsonObjectActivity.getString("address"));
                     activity.setPrice(jsonObjectActivity.getInt("price"));
