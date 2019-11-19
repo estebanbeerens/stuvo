@@ -9,6 +9,8 @@ import android.os.Bundle;
 //import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
@@ -124,12 +126,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
     public void newFragmentrequestButton_onClick(View v) {
 
+        final EditText name = (EditText) findViewById(R.id.newFragmentName);
         final DatePicker date = (DatePicker) findViewById(R.id.newFragmentDate);
         final EditText address = (EditText) findViewById(R.id.newFragmentAddress);
         final EditText price = (EditText) findViewById(R.id.newFragmentPrice);
         final EditText amountStudent = (EditText) findViewById(R.id.newFragmentAmountPlayers);
         final EditText description = (EditText) findViewById(R.id.newFragmentDescription);
-        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
+//        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
 
         //convert to String from datepicker
         String year = String.valueOf(date.getYear());
