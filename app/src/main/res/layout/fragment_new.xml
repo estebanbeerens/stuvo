@@ -13,31 +13,30 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--        Title       -->
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="@string/menu_new"
-                android:textAlignment="center"
-                android:textSize="25sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#000000" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="40dp"
                 android:orientation="vertical">
+
+                <!--     ACTIVITY NAME       -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/newFragmentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/new_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <!--     DATE       -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/menu_new_date"
+                    android:text="@string/new_date"
                     android:textSize="18sp" />
 
                 <DatePicker
@@ -49,85 +48,77 @@
                     android:inputType="text" />
 
                 <!--     ADDRESS       -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_new_address" />
-
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newFragmentAddress"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:hint="@string/new_address">
 
-                <!--     price       -->
-                <TextView
-                    android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--     PRICE       -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/newFragmentPrice"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/menu_new_price" />
+                    android:hint="@string/new_price">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-                    <EditText
-                        android:id="@+id/newFragmentPrice"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="text" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="€" />
-                </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <!--     amount of players       -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_new_amountPlayers" />
-
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newFragmentAmountPlayers"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:hint="@string/new_amountPlayers">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <!--     description       -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_new_description" />
-
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newFragmentDescription"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:hint="@string/new_description">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <!--     Campus       -->
-                <TextView
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/menu_new_campus" />
+                    android:hint="@string/new_campus">
 
-                <Spinner
-                    android:id="@+id/newFragmentCampus"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:drawSelectorOnTop="true" />
+                    <AutoCompleteTextView
+                        android:id="@+id/filled_exposed_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <!--     button     -->
-                <Button
-                    android:id="@+id/newFragmentrequestButton"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/material_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/menu_new_button"
-                    android:textAlignment="center"
-                    android:onClick="newFragmentrequestButton_onClick"/>
+                    android:text="@string/new_button"/>
 
             </LinearLayout>
         </LinearLayout>

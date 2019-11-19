@@ -18,11 +18,12 @@
     <string name="home_tab_application">Application</string>
     <string name="home_tab_manual">Manual</string>
 
-    <string name="menu_new_date">Date:</string>
-    <string name="menu_new_address">Address:</string>
-    <string name="menu_new_price">Estimated total price:</string>
-    <string name="menu_new_amountPlayers">Estimated amount of persons:</string>
-    <string name="menu_new_description">Description:</string>
-    <string name="menu_new_campus">Campus:</string>
-    <string name="menu_new_button">Request</string>
+    <string name="new_name">Name</string>
+    <string name="new_date">Date</string>
+    <string name="new_address">Address</string>
+    <string name="new_price">Estimated total price</string>
+    <string name="new_amountPlayers">Estimated amount of persons</string>
+    <string name="new_description">Description</string>
+    <string name="new_campus">Campus</string>
+    <string name="new_button">Request</string>
 </resources>

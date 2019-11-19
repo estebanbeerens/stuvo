@@ -18,12 +18,13 @@
     <string name="home_tab_application">Applicatie</string>
     <string name="home_tab_manual">Handleiding</string>
 
-    <string name="menu_new_date">Datum:</string>
-    <string name="menu_new_address">Adres:</string>
-    <string name="menu_new_price">Schatting totaalprijs:</string>
-    <string name="menu_new_amountPlayers">Geschat aantal personen:</string>
-    <string name="menu_new_description">Omschrijving:</string>
-    <string name="menu_new_campus">Campus:</string>
-    <string name="menu_new_button">Aanvragen</string>
+    <string name="new_name">Naam</string>
+    <string name="new_date">Datum</string>
+    <string name="new_address">Adres</string>
+    <string name="new_price">Schatting totaalprijs</string>
+    <string name="new_amountPlayers">Geschat aantal personen</string>
+    <string name="new_description">Omschrijving</string>
+    <string name="new_campus">Campus</string>
+    <string name="new_button">Aanvragen</string>
 
 </resources>
