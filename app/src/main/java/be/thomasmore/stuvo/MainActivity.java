@@ -9,13 +9,11 @@ import android.os.Bundle;
 //import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 //import android.view.View;
 
@@ -54,6 +52,8 @@ import be.thomasmore.stuvo.Models.Activity;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private TextInputLayout inputLayoutName, inputLayoutAddress, inputLayoutPrice, inputLayoutAmountOfStudents, inputLayoutDescription;
+    private EditText inputName, inputAddress, inputPrice, inputAmountOfStudents, inputDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,52 +127,93 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
     public void newFragmentrequestButton_onClick(View v) {
 
-        final EditText name = ((TextInputLayout) findViewById(R.id.newFragmentName)).getEditText();
         final DatePicker date = (DatePicker) findViewById(R.id.newFragmentDate);
-        final EditText address = ((TextInputLayout) findViewById(R.id.newFragmentAddress)).getEditText();
-        final EditText price = ((TextInputLayout) findViewById(R.id.newFragmentPrice)).getEditText();
-        final EditText amountStudent = ((TextInputLayout) findViewById(R.id.newFragmentAmountPlayers)).getEditText();
-        final EditText description = ((TextInputLayout) findViewById(R.id.newFragmentDescription)).getEditText();
 //        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
 
-        //convert to String from datepicker
-        String year = String.valueOf(date.getYear());
-        String month = String.valueOf(date.getMonth());
-        String day = String.valueOf(date.getDayOfMonth());
+        //EXTRA VOOR VALIDATIE
+        inputLayoutName = (TextInputLayout) findViewById(R.id.newFragmentName);
+        inputName = inputLayoutName.getEditText();
 
-        // Creating activity + adding  values
-        Activity activity = new Activity();
+        inputLayoutAddress = (TextInputLayout) findViewById(R.id.newFragmentAddress);
+        inputAddress = inputLayoutAddress.getEditText();
 
-        activity.setDate(day + "-" + month + "-" + year);
-        activity.setAddress(address.getText().toString());
-        activity.setName(name.getText().toString());
-        activity.setPrice(Integer.parseInt(price.getText().toString()));
-        activity.setAmountOfStudents(Integer.parseInt(amountStudent.getText().toString()));
-        activity.setDescription(description.getText().toString());
-        //CAMPUS AANPASSEN
+        inputLayoutPrice = (TextInputLayout) findViewById(R.id.newFragmentPrice);
+        inputPrice = inputLayoutPrice.getEditText();
+
+        inputLayoutAmountOfStudents = (TextInputLayout) findViewById(R.id.newFragmentAmountPlayers);
+        inputAmountOfStudents = inputLayoutAmountOfStudents.getEditText();
+
+        inputLayoutDescription = (TextInputLayout) findViewById(R.id.newFragmentDescription);
+        inputDescription = inputLayoutDescription.getEditText();
+
+        if (validateNewActivity()) {
+
+
+            //convert to String from datepicker
+            String year = String.valueOf(date.getYear());
+            String month = String.valueOf(date.getMonth());
+            String day = String.valueOf(date.getDayOfMonth());
+
+            // Creating activity + adding  values
+            Activity activity = new Activity();
+
+            activity.setDate(day + "-" + month + "-" + year);
+            activity.setName(inputName.getText().toString().trim());
+            activity.setAddress(inputAddress.getText().toString().trim());
+            activity.setDescription(inputDescription.getText().toString().trim());
+            activity.setPrice(Integer.parseInt(inputPrice.getText().toString()));
+            activity.setAmountOfStudents(Integer.parseInt(inputAmountOfStudents.getText().toString()));
+            //CAMPUS AANPASSEN
 //        activity.setCampus(campus.getSelectedItem().toString());
-        activity.setCampusId(1);
-        activity.setAccepted(false);
+            activity.setCampusId(1);
+            activity.setAccepted(false);
 
-        //UIT BUNDLE HALEN EN HIER INVOEGEN
-        //STUDENTID AANPASSSEN
-        activity.setStudentId(1);
+            //UIT BUNDLE HALEN EN HIER INVOEGEN
+            //STUDENTID AANPASSSEN
+            activity.setStudentId(1);
 
-        Log.e("666", activity.getAddress());
-        Log.e("666", activity.getDate());
-        Log.e("666", activity.getName());
-        Log.e("666", activity.getDescription());
-        Log.e("666", activity.getAmountOfStudents()+"");
-        Log.e("666", activity.getPrice()+"");
-        Log.e("666", activity.getCampusId()+"");
-        Log.e("666", activity.getStudentId()+"");
-        Log.e("666", activity.isAccepted()+"");
+//        Log.e("666", activity.getAddress());
+//        Log.e("666", activity.getDate());
+//        Log.e("666", activity.getName());
+//        Log.e("666", activity.getDescription());
+////        Log.e("666", activity.getAmountOfStudents()+"");
+////        Log.e("666", activity.getPrice()+"");
+//        Log.e("666", activity.getCampusId()+"");
+//        Log.e("666", activity.getStudentId()+"");
+//        Log.e("666", activity.isAccepted()+"");
 
-        postActivity(activity);
-//
+
+            postActivity(activity);
+        }
     }
 
-    private void postActivity(Activity activity){
+    private Boolean validateNewActivity() {
+        boolean b = true;
+
+        if (!validateName()) {
+            b = false;
+        }
+
+        if (!validateAddress()) {
+            b = false;
+        }
+
+        if (!validateDescription()) {
+            b = false;
+        }
+
+        if (!validateAmountOfStudents()) {
+            b = false;
+        }
+
+        if (!validatePrice()) {
+            b = false;
+        }
+
+        return b;
+    }
+
+    private void postActivity(Activity activity) {
         JsonHelper jsonHelper = new JsonHelper();
         HttpWriter httpWriter = new HttpWriter();
 
@@ -185,6 +226,77 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         httpWriter.execute("https://beerensco.sinners.be/Maes/phpFiles/writeActivity.php");
     }
+
+    private boolean validateName() {
+        if (inputName.getText().toString().trim().isEmpty()) {
+            inputLayoutName.setError(getString(R.string.err_msg_name));
+            requestFocus(inputName);
+            return false;
+        } else {
+            inputLayoutName.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private boolean validateAddress() {
+        if (inputAddress.getText().toString().trim().isEmpty()) {
+            inputLayoutAddress.setError(getString(R.string.err_msg_address));
+            requestFocus(inputAddress);
+            return false;
+        } else {
+            inputLayoutAddress.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private boolean validateDescription() {
+        if (inputDescription.getText().toString().trim().isEmpty()) {
+            inputLayoutDescription.setError(getString(R.string.err_msg_description));
+            requestFocus(inputDescription);
+            return false;
+        } else {
+            inputLayoutDescription.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private boolean validateAmountOfStudents() {
+        if (inputAmountOfStudents.getText().toString().trim().isEmpty()) {
+            inputLayoutAmountOfStudents.setError(getString(R.string.err_msg_amountOfStudents));
+
+            requestFocus(inputAmountOfStudents);
+            return false;
+        } else {
+            inputLayoutAmountOfStudents.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private boolean validatePrice() {
+        if (inputPrice.getText().toString().trim().isEmpty()) {
+            inputLayoutPrice.setError(getString(R.string.err_msg_price));
+            requestFocus(inputPrice);
+            return false;
+        } else {
+            inputLayoutPrice.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+
+    //ANDERE VALIDATES HIER
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
 
     //------------------------------------------//
     //    HIER ALLES VAN PREVIOUS  FRAGMENT     //
@@ -201,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         httpReader.execute("https://beerensco.sinners.be/activities.php");
     }
+
     //------------------------------------------//
     //    HIER ALLES VAN REQUESTED FRAGMENT     //
     //------------------------------------------//
@@ -227,9 +340,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
 
 
-
-    private void toon(String tekst)
-    {
+    private void toon(String tekst) {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_LONG).show();
     }
 }

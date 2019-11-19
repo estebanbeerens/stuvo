@@ -26,4 +26,10 @@
     <string name="new_description">Description</string>
     <string name="new_campus">Campus</string>
     <string name="new_button">Request</string>
+
+    <string name="err_msg_name">Fil in a name!</string>
+    <string name="err_msg_address">Fil in a address!</string>
+    <string name="err_msg_description">Fil in a description!</string>
+    <string name="err_msg_amountOfStudents">Fil in a amount of students!</string>
+    <string name="err_msg_price">Fil in a estimated price!</string>
 </resources>

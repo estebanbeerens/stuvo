@@ -27,4 +27,10 @@
     <string name="new_campus">Campus</string>
     <string name="new_button">Aanvragen</string>
 
+    <string name="err_msg_name">Vul een naam in!</string>
+    <string name="err_msg_address">Vul een adres in!</string>
+    <string name="err_msg_description">Vul een omschrijving in!</string>
+    <string name="err_msg_amountOfStudents">vul een aantal studenten in!</string>
+    <string name="err_msg_price">Vul een prijs!</string>
+
 </resources>
