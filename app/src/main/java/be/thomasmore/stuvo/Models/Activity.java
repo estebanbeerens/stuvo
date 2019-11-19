@@ -11,7 +11,7 @@ public class Activity {
     private int price;
     private int amountOfStudents;
     private String description;
-    private String campus;
+    private int campusId;
     private boolean accepted;
     private long studentId;
 
@@ -19,7 +19,7 @@ public class Activity {
 
     }
 
-    public Activity(long id, String name, String date, String address, int price, int amountOfStudents, String description, String campus, boolean accepted, long studentId) {
+    public Activity(long id, String name, String date, String address, int price, int amountOfStudents, String description, int campusId, boolean accepted, long studentId) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -27,7 +27,7 @@ public class Activity {
         this.price = price;
         this.amountOfStudents = amountOfStudents;
         this.description = description;
-        this.campus = campus;
+        this.campusId = campusId;
         this.accepted = accepted;
         this.studentId = studentId;
     }
@@ -88,12 +88,12 @@ public class Activity {
         this.description = description;
     }
 
-    public String getCampus() {
-        return campus;
+    public int getCampusId() {
+        return campusId;
     }
 
-    public void setCampus(String campus) {
-        this.campus = campus;
+    public void setCampusId(int campusId) {
+        this.campusId = campusId;
     }
 
     public boolean isAccepted() {
