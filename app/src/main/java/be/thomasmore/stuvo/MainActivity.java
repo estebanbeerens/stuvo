@@ -35,6 +35,7 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.List;
 
 import be.thomasmore.stuvo.Database.HttpReader;
+import be.thomasmore.stuvo.Database.HttpWriter;
 import be.thomasmore.stuvo.Database.JsonHelper;
 import be.thomasmore.stuvo.Fragments.FriendsFragment;
 import be.thomasmore.stuvo.Fragments.HomeFragment;
@@ -137,29 +138,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Creating activity + adding  values
         Activity activity = new Activity();
-        activity.setDate(day + "/" + month + "/" + year);
+
+        activity.setDate(day + "-" + month + "-" + year);
         activity.setAddress(address.getText().toString());
+        // NAME AANPASSEN
+        activity.setName("testname aanpassen");
         activity.setPrice(Integer.parseInt(price.getText().toString()));
         activity.setAmountOfStudents(Integer.parseInt(amountStudent.getText().toString()));
         activity.setDescription(description.getText().toString());
+        //CAMPUS AANPASSEN
 //        activity.setCampus(campus.getSelectedItem().toString());
+        activity.setCampusId(1);
         activity.setAccepted(false);
 
         //UIT BUNDLE HALEN EN HIER INVOEGEN
-        //activity.setStudentId();
+        //STUDENTID AANPASSSEN
+        activity.setStudentId(1);
 
-        Log.e("666", activity.getDate() + "");
-        Log.e("666", activity.getAddress() + "");
-        Log.e("666", activity.getPrice() + "");
-        Log.e("666", activity.getAmountOfStudents() + "");
-        Log.e("666", activity.getDescription() + "");
-        Log.e("666", activity.getCampus() + "");
-        Log.e("666", activity.isAccepted() + "");
-        Log.e("666", activity.getStudentId() + "");
+        Log.e("666", activity.getAddress());
+        Log.e("666", activity.getDate());
+        Log.e("666", activity.getName());
+        Log.e("666", activity.getDescription());
+        Log.e("666", activity.getAmountOfStudents()+"");
+        Log.e("666", activity.getPrice()+"");
+        Log.e("666", activity.getCampusId()+"");
+        Log.e("666", activity.getStudentId()+"");
+        Log.e("666", activity.isAccepted()+"");
 
-//        db.insertContact(activity);
+        postActivity(activity);
+//
     }
 
+    private void postActivity(Activity activity){
+        JsonHelper jsonHelper = new JsonHelper();
+        HttpWriter httpWriter = new HttpWriter();
+
+        httpWriter.setJsonObject(jsonHelper.getJSONActivity(activity));
+        httpWriter.setOnResultReadyListener(new HttpWriter.OnResultReadyListener() {
+            @Override
+            public void resultReady(String result) {
+                toon(result);
+            }
+        });
+        httpWriter.execute("https://beerensco.sinners.be/Maes/phpFiles/writeActivity.php");
+    }
 
     //------------------------------------------//
     //    HIER ALLES VAN PREVIOUS  FRAGMENT     //
@@ -201,4 +223,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //    HIER ALLES VAN FRIENDS FRAGMENT       //
     //------------------------------------------//
 
+
+
+    private void toon(String tekst)
+    {
+        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_LONG).show();
+    }
 }
