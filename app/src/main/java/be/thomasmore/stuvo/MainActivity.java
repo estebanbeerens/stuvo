@@ -1,12 +1,7 @@
 package be.thomasmore.stuvo;
 
-//import android.content.Intent;
-
 import android.graphics.Color;
 import android.os.Bundle;
-
-//import com.google.android.material.floatingactionbutton.FloatingActionButton;
-//import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
 import android.view.MenuItem;
@@ -15,15 +10,10 @@ import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-//import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-//import androidx.navigation.NavController;
-//import androidx.navigation.Navigation;
-//import androidx.navigation.ui.AppBarConfiguration;
-//import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -45,9 +35,6 @@ import be.thomasmore.stuvo.Fragments.PreviousFragment;
 import be.thomasmore.stuvo.Fragments.RequestedFragment;
 import be.thomasmore.stuvo.Models.Activity;
 
-//import android.view.Menu;
-
-//import be.thomasmore.stuvo.ui.previous.PreviousFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -99,12 +86,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_previous:
                 Log.e("666666", "Previous" + "");
-                ReadPreviousActivities();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PreviousFragment()).commit();
                 break;
             case R.id.nav_requested:
                 Log.e("666666", "Requested" + "");
-                ReadRequestedActivities();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RequestedFragment()).commit();
                 break;
         }
@@ -127,23 +112,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
     public void newFragmentrequestButton_onClick(View v) {
 
-        final DatePicker date = (DatePicker) findViewById(R.id.newFragmentDate);
+        final DatePicker date = findViewById(R.id.newFragmentDate);
 //        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
 
         //EXTRA VOOR VALIDATIE
-        inputLayoutName = (TextInputLayout) findViewById(R.id.newFragmentName);
+        inputLayoutName = findViewById(R.id.newFragmentName);
         inputName = inputLayoutName.getEditText();
 
-        inputLayoutAddress = (TextInputLayout) findViewById(R.id.newFragmentAddress);
+        inputLayoutAddress = findViewById(R.id.newFragmentAddress);
         inputAddress = inputLayoutAddress.getEditText();
 
-        inputLayoutPrice = (TextInputLayout) findViewById(R.id.newFragmentPrice);
+        inputLayoutPrice = findViewById(R.id.newFragmentPrice);
         inputPrice = inputLayoutPrice.getEditText();
 
-        inputLayoutAmountOfStudents = (TextInputLayout) findViewById(R.id.newFragmentAmountPlayers);
+        inputLayoutAmountOfStudents = findViewById(R.id.newFragmentAmountPlayers);
         inputAmountOfStudents = inputLayoutAmountOfStudents.getEditText();
 
-        inputLayoutDescription = (TextInputLayout) findViewById(R.id.newFragmentDescription);
+        inputLayoutDescription = findViewById(R.id.newFragmentDescription);
         inputDescription = inputLayoutDescription.getEditText();
 
         if (validateNewActivity()) {
@@ -301,34 +286,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
     //    HIER ALLES VAN PREVIOUS  FRAGMENT     //
     //------------------------------------------//
-    private void ReadPreviousActivities() {
-        HttpReader httpReader = new HttpReader();
-        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
-            @Override
-            public void resultReady(String result) {
-                JsonHelper jsonHelper = new JsonHelper();
-                List<Activity> activities = jsonHelper.getPreviousActivities(result);
-                Log.e("666", "gelukt");
-            }
-        });
-        httpReader.execute("https://beerensco.sinners.be/activities.php");
-    }
+
 
     //------------------------------------------//
     //    HIER ALLES VAN REQUESTED FRAGMENT     //
     //------------------------------------------//
-    private void ReadRequestedActivities() {
-        HttpReader httpReader = new HttpReader();
-        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
-            @Override
-            public void resultReady(String result) {
-                JsonHelper jsonHelper = new JsonHelper();
-                List<Activity> activities = jsonHelper.getRequestedActivities(result);
-                Log.e("666", "gelukt");
-            }
-        });
-        httpReader.execute("https://beerensco.sinners.be/activities.php");
-    }
+
 
     //------------------------------------------//
     //    HIER ALLES HOME FRAGMENT              //
