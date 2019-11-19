@@ -1,4 +1,4 @@
-package be.thomasmore.networking;
+package be.thomasmore.stuvo.Database;
 
 import android.os.AsyncTask;
 import android.util.Log;

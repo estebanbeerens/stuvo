@@ -6,8 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class JsonHelper {
                     activity.setPrice(jsonObjectActivity.getInt("price"));
                     activity.setAmountOfStudents(jsonObjectActivity.getInt("amountOfStudents"));
                     activity.setDescription(jsonObjectActivity.getString("description"));
-                    activity.setCampus(jsonObjectActivity.getString("campus"));
+                    activity.setCampusId(jsonObjectActivity.getInt("campusId"));
                     activity.setAccepted(jsonObjectActivity.getBoolean("accepted"));
                     activity.setStudentId(jsonObjectActivity.getInt("studentId"));
 
@@ -64,7 +62,7 @@ public class JsonHelper {
                     activity.setPrice(jsonObjectActivity.getInt("price"));
                     activity.setAmountOfStudents(jsonObjectActivity.getInt("amountOfStudents"));
                     activity.setDescription(jsonObjectActivity.getString("description"));
-                    activity.setCampus(jsonObjectActivity.getString("campus"));
+                    activity.setCampusId(jsonObjectActivity.getInt("campusId"));
                     activity.setAccepted(jsonObjectActivity.getBoolean("accepted"));
                     activity.setStudentId(jsonObjectActivity.getInt("studentId"));
 
@@ -75,5 +73,28 @@ public class JsonHelper {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         return activities;
+    }
+
+
+    public JSONObject getJSONActivity(Activity activity) {
+        JSONObject jsonObjectActivity = new JSONObject();
+        try {
+            jsonObjectActivity.put("name", activity.getName());
+            jsonObjectActivity.put("date", activity.getDate());
+            jsonObjectActivity.put("address", activity.getAddress());
+            jsonObjectActivity.put("price", activity.getPrice()+"");
+            jsonObjectActivity.put("amountOfStudents", activity.getAmountOfStudents()+"");
+            jsonObjectActivity.put("description", activity.getDescription());
+            if (activity.isAccepted()){
+                jsonObjectActivity.put("accepted","1" );
+            } else{
+                jsonObjectActivity.put("accepted","0" );
+            }
+            jsonObjectActivity.put("studentId", activity.getStudentId()+"");
+            jsonObjectActivity.put("campusId", activity.getCampusId()+"");
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return jsonObjectActivity;
     }
 }
