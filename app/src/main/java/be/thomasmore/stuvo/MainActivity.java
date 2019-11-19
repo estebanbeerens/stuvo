@@ -28,6 +28,7 @@ import androidx.core.view.GravityCompat;
 //import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -126,12 +127,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //------------------------------------------//
     public void newFragmentrequestButton_onClick(View v) {
 
-        final EditText name = (EditText) findViewById(R.id.newFragmentName);
+        final EditText name = ((TextInputLayout) findViewById(R.id.newFragmentName)).getEditText();
         final DatePicker date = (DatePicker) findViewById(R.id.newFragmentDate);
-        final EditText address = (EditText) findViewById(R.id.newFragmentAddress);
-        final EditText price = (EditText) findViewById(R.id.newFragmentPrice);
-        final EditText amountStudent = (EditText) findViewById(R.id.newFragmentAmountPlayers);
-        final EditText description = (EditText) findViewById(R.id.newFragmentDescription);
+        final EditText address = ((TextInputLayout) findViewById(R.id.newFragmentAddress)).getEditText();
+        final EditText price = ((TextInputLayout) findViewById(R.id.newFragmentPrice)).getEditText();
+        final EditText amountStudent = ((TextInputLayout) findViewById(R.id.newFragmentAmountPlayers)).getEditText();
+        final EditText description = ((TextInputLayout) findViewById(R.id.newFragmentDescription)).getEditText();
 //        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
 
         //convert to String from datepicker
@@ -144,8 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         activity.setDate(day + "-" + month + "-" + year);
         activity.setAddress(address.getText().toString());
-        // NAME AANPASSEN
-        activity.setName("testname aanpassen");
+        activity.setName(name.getText().toString());
         activity.setPrice(Integer.parseInt(price.getText().toString()));
         activity.setAmountOfStudents(Integer.parseInt(amountStudent.getText().toString()));
         activity.setDescription(description.getText().toString());
