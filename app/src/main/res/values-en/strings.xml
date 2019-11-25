@@ -6,6 +6,14 @@
     <string name="nav_header_subtitle">Mobile Development - Team Maes</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="company_logo">Company logo</string>
+
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="err_msg_login_username">Enter your username!</string>
+    <string name="err_msg_login_password">Enter your password!</string>
+    <string name="err_msg_login_noMatch">Your username and/or password do not match anything in our system.</string>
+    <string name="login_button">Log in</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_previous">Previous activities</string>
@@ -27,9 +35,10 @@
     <string name="new_campus">Campus</string>
     <string name="new_button">Request</string>
 
-    <string name="err_msg_name">Fil in a name!</string>
-    <string name="err_msg_address">Fil in a address!</string>
-    <string name="err_msg_description">Fil in a description!</string>
-    <string name="err_msg_amountOfStudents">Fil in a amount of students!</string>
-    <string name="err_msg_price">Fil in a estimated price!</string>
+
+    <string name="err_msg_name">Fill in a name!</string>
+    <string name="err_msg_address">Fill in an address!</string>
+    <string name="err_msg_description">Fill in a description!</string>
+    <string name="err_msg_amountOfStudents">Fill in an amount of students!</string>
+    <string name="err_msg_price">Fill in an estimated price!</string>
 </resources>

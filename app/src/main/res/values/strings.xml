@@ -6,6 +6,14 @@
     <string name="nav_header_subtitle">Mobile Development - Team Maes</string>
     <string name="nav_header_desc">Navigatie header</string>
     <string name="action_settings">Instellingen</string>
+    <string name="company_logo">Bedrijfslogo</string>
+
+    <string name="login_username">Gebruikersnaam</string>
+    <string name="login_password">Wachtwoord</string>
+    <string name="err_msg_login_username">Vul je gebruikersnaam in!</string>
+    <string name="err_msg_login_password">Vul je wachtwoord in!</string>
+    <string name="err_msg_login_noMatch">Uw gebruikersnaam en/of wachtwoord komt niet overeen met iets in ons systeem.</string>
+    <string name="login_button">Inloggen</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_previous">Vorige activiteiten</string>
@@ -30,7 +38,8 @@
     <string name="err_msg_name">Vul een naam in!</string>
     <string name="err_msg_address">Vul een adres in!</string>
     <string name="err_msg_description">Vul een omschrijving in!</string>
-    <string name="err_msg_amountOfStudents">vul een aantal studenten in!</string>
+    <string name="err_msg_amountOfStudents">Vul een aantal studenten in!</string>
     <string name="err_msg_price">Vul een prijs!</string>
 
+    <string name="new_campus_hint">Geef de eerste letters van je campus</string>
 </resources>
