@@ -1,5 +1,6 @@
 package be.thomasmore.stuvo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -91,6 +92,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_requested:
                 Log.e("666666", "Requested" + "");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RequestedFragment()).commit();
+                break;
+            case R.id.nav_logout:
+                Log.e("666666", "Logout" + "");
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
