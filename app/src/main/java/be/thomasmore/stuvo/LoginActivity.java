@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         if((name.equals("Admin")) && (pass.equals("1234"))){
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     public void cheat_onClick(View v) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 
@@ -81,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validatePass() {
         if (inputPass.getText().toString().trim().isEmpty()) {
-            inputLayoutName.setError(getString(R.string.err_msg_login_password));
+            inputLayoutPass.setError(getString(R.string.err_msg_login_password));
             requestFocus(inputPass);
             return false;
         } else {

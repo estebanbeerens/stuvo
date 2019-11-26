@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Log.e("666666", "Logout" + "");
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
