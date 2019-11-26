@@ -35,10 +35,12 @@
     <string name="new_campus">Campus</string>
     <string name="new_button">Request</string>
 
-
     <string name="err_msg_name">Fill in a name!</string>
     <string name="err_msg_address">Fill in an address!</string>
     <string name="err_msg_description">Fill in a description!</string>
     <string name="err_msg_amountOfStudents">Fill in an amount of students!</string>
     <string name="err_msg_price">Fill in an estimated price!</string>
+    <string name="err_msg_campus">No valid campus!</string>
+
+    <string name="new_campus_hint">Type the first letter of your campus</string>
 </resources>
