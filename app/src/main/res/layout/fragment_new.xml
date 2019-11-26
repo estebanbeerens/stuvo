@@ -24,11 +24,13 @@
                     android:id="@+id/newFragmentName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:hint="@string/new_name">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,11 +54,13 @@
                     android:id="@+id/newFragmentAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:hint="@string/new_address">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,12 +69,14 @@
                     android:id="@+id/newFragmentPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:hint="@string/new_price">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,13 +86,14 @@
                     android:id="@+id/newFragmentAmountPlayers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/new_amountPlayers"
-                    >
+                    android:layout_marginBottom="15dp"
+                    android:hint="@string/new_amountPlayers" >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,6 +102,7 @@
                     android:id="@+id/newFragmentDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:hint="@string/new_description">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -112,7 +120,8 @@
                     <AutoCompleteTextView
                         android:id="@+id/filled_exposed_dropdown"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
