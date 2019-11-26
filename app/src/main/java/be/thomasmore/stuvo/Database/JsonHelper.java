@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.stuvo.Models.Activity;
+import be.thomasmore.stuvo.Models.Student;
 
 public class JsonHelper {
 
@@ -96,5 +97,21 @@ public class JsonHelper {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         return jsonObjectActivity;
+    }
+
+    public Student getJSONStudent(String jsonTekst) {
+        Student student = new Student();
+        try {
+            JSONArray jsonArrayStudent = new JSONArray(jsonTekst);
+            student.setId(jsonArrayStudent.getJSONObject(0).getInt("id"));
+            student.setNumber(jsonArrayStudent.getJSONObject(0).getString("username"));
+            student.setFirstName(jsonArrayStudent.getJSONObject(0).getString("firstName"));
+            student.setLastName(jsonArrayStudent.getJSONObject(0).getString("lastName"));
+            student.setPassword(jsonArrayStudent.getJSONObject(0).getString("password"));
+
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return student;
     }
 }
