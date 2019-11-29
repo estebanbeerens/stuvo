@@ -1,0 +1,58 @@
+<mat-drawer-container (backdropClick)="onBackdropClick()" class="content">
+  <mat-drawer mode="over" id="sideNav" [(opened)]="sideMenuToggled">
+
+    <div id="sideNavHeader" class="sideNavDark text-center header-height">
+      <div class="logo-box">
+        <img src="assets/images/company_logo.svg" alt="Company logo"  class="logo-size">
+        <span class="text-white logo-title"> Angular template</span>
+      </div>
+    </div>
+
+    <div id="sideNavProfile" class="sideNavDark text-center">
+      <p class="text-light pt-2">Jef De&nbsp;Bakker</p>
+      <p class="text-info" style="margin-top: -10px">jefdebakker@gmail.com</p>
+      <img src="assets/images/user_icon.jpg" alt="User picture" class="user-picture-large userPicture">
+    </div>
+
+    <div id="sideNavButtons" class="mt-5 container">
+      <p class="text-secondary text-uppercase">applications</p>
+      <button mat-button class="row">
+        <mat-icon class="col">dashboard_outlined</mat-icon>
+        <span class="col">Dashboards</span>
+        <span class="sideNavChip float-md-right mr-2">25</span>
+      </button>
+      <button mat-button class="row sideNavActive">
+        <mat-icon class="col">playlist_add_check</mat-icon>
+        <span class="col">To-Do</span>
+        <span class="float-md-right mr-2"></span>
+      </button>
+      <button mat-button class="row">
+        <mat-icon class="col">today</mat-icon>
+        <span class="col">Calender</span>
+        <span class="float-md-right mr-2"></span>
+      </button>
+      <button mat-button class="row">
+        <mat-icon class="col">shopping_cart</mat-icon>
+        <span class="col">E-commerce</span>
+        <span class="sideNavChip float-md-right mr-2">4</span>
+      </button>
+      <button mat-button class="row">
+        <mat-icon class="col">email</mat-icon>
+        <span class="col">Mail</span>
+        <span class="float-md-right mr-2"></span>
+      </button>
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <app-core-header></app-core-header>
+    <div>
+<!--      <app-core-spinner></app-core-spinner>-->
+      <!--    CONTENT GOES HERE    -->
+      <app-todo></app-todo>
+    </div>
+    <div class="fill-rest-of-page"></div>
+  </mat-drawer-content>
+
+</mat-drawer-container>

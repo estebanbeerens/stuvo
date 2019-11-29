@@ -1,0 +1,85 @@
+mat-drawer {
+  position: fixed;
+}
+
+#sideNav {
+  background-color: #f2f2f2;
+  color: #444;
+  box-shadow: 1px 0 2px 0 #eee;
+  width: 300px;
+}
+
+#sideNavHeader {
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-flex: 1;
+  flex: 1 0 auto;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  min-height: 64px;
+  max-height: 64px;
+  height: 64px;
+  padding: 12px 12px 12px 20px;
+}
+
+.logo-box {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.logo-size {
+  height: 24px;
+  width: 24px;
+}
+
+.logo-title {
+  margin-left: 12px;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: .4px;
+  line-height: normal;
+}
+
+.userPicture {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sideNavDark {
+  background-color: #1E2129;
+}
+
+#sideNavProfile {
+  height: 125px;
+}
+
+#sideNavButtons > button {
+  width: 100%;
+  padding: 7px;
+  text-align: left !important;
+}
+
+.sideNavActive {
+  background-color: #3F51B5;
+  color: #eee;
+}
+
+.sideNavChip {
+  position:absolute;
+  top: 15px;
+  right:10px;
+  line-height:11px;
+  padding:5px;
+  font-size:11px;
+  border-radius:20px;
+  background: #F44336;
+  color: #eee;
+}
