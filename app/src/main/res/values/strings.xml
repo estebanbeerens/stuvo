@@ -40,8 +40,6 @@
     <string name="err_msg_description">Vul een omschrijving in!</string>
     <string name="err_msg_amountOfStudents">Vul een aantal studenten in!</string>
     <string name="err_msg_price">Vul een prijs!</string>
-    <string name="err_msg_campus">Geen valide campus!</string>
 
     <string name="new_campus_hint">Geef de eerste letters van je campus</string>
-
 </resources>

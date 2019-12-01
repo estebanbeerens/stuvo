@@ -8,11 +8,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +24,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.stuvo.Database.HttpReader;
@@ -39,22 +35,13 @@ import be.thomasmore.stuvo.Fragments.NewFragment;
 import be.thomasmore.stuvo.Fragments.PreviousFragment;
 import be.thomasmore.stuvo.Fragments.RequestedFragment;
 import be.thomasmore.stuvo.Models.Activity;
-import be.thomasmore.stuvo.Models.Campus;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    private TextInputLayout inputLayoutName, inputLayoutAddress, inputLayoutPrice, inputLayoutAmountOfStudents, inputLayoutDescription, inputLayoutCampus;
-    private AutoCompleteTextView inputCampus;
-    private DatePicker datePicker;
-
+    private TextInputLayout inputLayoutName, inputLayoutAddress, inputLayoutPrice, inputLayoutAmountOfStudents, inputLayoutDescription;
     private EditText inputName, inputAddress, inputPrice, inputAmountOfStudents, inputDescription;
-    private ArrayList<String> campusNames = new ArrayList<String>();
-    private ArrayList<Campus> campusesFromDropdown = new ArrayList<Campus>();
-
-    private Campus campus;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_new:
                 Log.e("666666", "New" + "");
-                FillCampusDropdown();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NewFragment()).commit();
                 break;
             case R.id.nav_previous:
@@ -132,98 +118,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //    HIER ALLES VAN NEW REQUEST FRAGMENT   //
     //------------------------------------------//
     public void newFragmentrequestButton_onClick(View v) {
-        //EXTRA VOOR VALIDATIE + LEZEN ACTIVITY
-        ReadInputfields();
 
-        inputCampus.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b) {
-                    // on focus off
-                    String str = inputCampus.getText().toString();
+        final DatePicker date = findViewById(R.id.newFragmentDate);
+//        final Spinner campus = (Spinner) findViewById(R.id.newFragmentCampus);
 
-                    ListAdapter listAdapter = inputCampus.getAdapter();
-                    for(int i = 0; i < listAdapter.getCount(); i++) {
-                        String temp = listAdapter.getItem(i).toString();
-                        if(str.compareTo(temp) == 0) {
-                            return;
-                        }
-                    }
-                    inputCampus.setText("");
-
-                }
-            }
-        });
-
-        //CHECKEN OP VALIDE CAMPUS
-        String str = inputCampus.getText().toString();
-        Boolean b = true;
-        ListAdapter listAdapter = inputCampus.getAdapter();
-        for(int i = 0; i < listAdapter.getCount(); i++) {
-            String temp = listAdapter.getItem(i).toString();
-            if(str.compareTo(temp) == 0) {
-                b = false;
-                break;
-            }
-
-        }
-        if (b){
-            inputCampus.setText("");
-        }
-
-
-        //CHECKEN OPVALIDE FORM
-        if (validateNewActivity()) {
-            readCampusAndCreateAndPostActivity();
-        }
-    }
-
-    private void readCampusAndCreateAndPostActivity() {
-        HttpReader httpReader = new HttpReader();
-        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
-            @Override
-            public void resultReady(String result) {
-                JsonHelper jsonHelper = new JsonHelper();
-//                List<Campus> campuses = jsonHelper.getCampuses(result);
-                campus = jsonHelper.getCampus(result);
-
-                // Creating activity + adding  values
-                Activity activity = CreateActivity();
-//
-                // ACTIVITY WEGSCHRIJVEN IN DB
-                postActivity(activity);
-            }
-        });
-        httpReader.execute("https://beerensco.sinners.be/Maes/phpFiles/readCampusByName.php?name=\""+ inputCampus.getText().toString() +"\"");
-    }
-
-    private Activity CreateActivity() {
-        Activity activity = new Activity();
-
-        activity.setDate(getDateString(datePicker));
-        activity.setName(inputName.getText().toString().trim());
-        activity.setAddress(inputAddress.getText().toString().trim());
-        activity.setDescription(inputDescription.getText().toString().trim());
-        activity.setPrice(Integer.parseInt(inputPrice.getText().toString()));
-        activity.setAmountOfStudents(Integer.parseInt(inputAmountOfStudents.getText().toString()));
-        activity.setAccepted(false);
-
-        //CAMPUSID, STUDENTID AANPASSEN
-        activity.setCampusId(Math.toIntExact(campus.getId()));
-        activity.setStudentId(1);
-
-        return activity;
-    }
-
-    private String getDateString(DatePicker datePicker) {
-        //convert to String from datepicker
-        String year = String.valueOf(datePicker.getYear());
-        String month = String.valueOf(datePicker.getMonth());
-        String day = String.valueOf(datePicker.getDayOfMonth());
-        return day + "-" + month + "-" + year;
-    }
-
-    private void ReadInputfields() {
+        //EXTRA VOOR VALIDATIE
         inputLayoutName = findViewById(R.id.newFragmentName);
         inputName = inputLayoutName.getEditText();
 
@@ -239,10 +138,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         inputLayoutDescription = findViewById(R.id.newFragmentDescription);
         inputDescription = inputLayoutDescription.getEditText();
 
-        inputLayoutCampus = findViewById(R.id.newFragmentCampusLayout);
-        inputCampus = findViewById(R.id.newFragmentCampus);
+        if (validateNewActivity()) {
 
-        datePicker = findViewById(R.id.newFragmentDate);
+
+            //convert to String from datepicker
+            String year = String.valueOf(date.getYear());
+            String month = String.valueOf(date.getMonth());
+            String day = String.valueOf(date.getDayOfMonth());
+
+            // Creating activity + adding  values
+            Activity activity = new Activity();
+
+            activity.setDate(day + "-" + month + "-" + year);
+            activity.setName(inputName.getText().toString().trim());
+            activity.setAddress(inputAddress.getText().toString().trim());
+            activity.setDescription(inputDescription.getText().toString().trim());
+            activity.setPrice(Integer.parseInt(inputPrice.getText().toString()));
+            activity.setAmountOfStudents(Integer.parseInt(inputAmountOfStudents.getText().toString()));
+            //CAMPUS AANPASSEN
+//        activity.setCampus(campus.getSelectedItem().toString());
+            activity.setCampusId(1);
+            activity.setAccepted(false);
+
+            //UIT BUNDLE HALEN EN HIER INVOEGEN
+            //STUDENTID AANPASSSEN
+            activity.setStudentId(1);
+
+//        Log.e("666", activity.getAddress());
+//        Log.e("666", activity.getDate());
+//        Log.e("666", activity.getName());
+//        Log.e("666", activity.getDescription());
+////        Log.e("666", activity.getAmountOfStudents()+"");
+////        Log.e("666", activity.getPrice()+"");
+//        Log.e("666", activity.getCampusId()+"");
+//        Log.e("666", activity.getStudentId()+"");
+//        Log.e("666", activity.isAccepted()+"");
+
+
+            postActivity(activity);
+        }
     }
 
     private Boolean validateNewActivity() {
@@ -265,10 +199,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if (!validatePrice()) {
-            b = false;
-        }
-
-        if (!validateCampus()) {
             b = false;
         }
 
@@ -350,53 +280,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private boolean validateCampus() {
-        if (inputCampus.getText().toString().trim().isEmpty()) {
-            inputLayoutCampus.setError(getString(R.string.err_msg_campus));
-            requestFocus(inputCampus);
-            return false;
-        } else {
-            inputLayoutCampus.setErrorEnabled(false);
-        }
 
-        return true;
-    }
+    //ANDERE VALIDATES HIER
 
     private void requestFocus(View view) {
         if (view.requestFocus()) {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
-    }
-
-    private void FillCampusDropdown() {
-        Log.e("666", "HIER GERAKEN WE TOCH1");
-        HttpReader httpReader = new HttpReader();
-        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
-            @Override
-            public void resultReady(String result) {
-                JsonHelper jsonHelper = new JsonHelper();
-                List<Campus> campuses = jsonHelper.getCampuses(result);
-                String tekst = " - ";
-
-                Log.e("666", "HIER GERAKEN WE TOCH2");
-
-                for (int i = 0; i < campuses.size(); i++) {
-                    //DROPDOWN VULLEN? TOT HIER WERKT AL
-                    tekst += campuses.get(i).getName() + " - ";
-                    campusNames.add(campuses.get(i).getName());
-                    campusesFromDropdown.add(campuses.get(i));
-                }
-
-                Log.e("666", campusNames.toString());
-                toon(tekst);
-
-                AutoCompleteTextView editText = findViewById(R.id.newFragmentCampus);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, campusNames);
-
-                editText.setAdapter(adapter);
-            }
-        });
-        httpReader.execute("https://beerensco.sinners.be/Maes/phpFiles/readCampuses.php");
     }
 
 

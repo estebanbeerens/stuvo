@@ -19,7 +19,6 @@
                 android:layout_margin="40dp"
                 android:orientation="vertical">
 
-
                 <!--     ACTIVITY NAME       -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newFragmentName"
@@ -34,9 +33,6 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
                 <!--     DATE       -->
                 <TextView
@@ -117,22 +113,21 @@
 
                 <!--     Campus       -->
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/newFragmentCampusLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/new_campus">
 
                     <AutoCompleteTextView
-                        android:id="@+id/newFragmentCampus"
+                        android:id="@+id/filled_exposed_dropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
-                        android:completionThreshold="2"/>
+                        android:singleLine="true"/>
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!--     button     -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/newFragment_button"
+                    android:id="@+id/material_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/new_button"
