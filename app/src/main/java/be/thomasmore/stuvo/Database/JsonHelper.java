@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.stuvo.Models.Activity;
-import be.thomasmore.stuvo.Models.Student;
 import be.thomasmore.stuvo.Models.Campus;
+import be.thomasmore.stuvo.Models.Student;
 
 public class JsonHelper {
 
@@ -24,7 +24,7 @@ public class JsonHelper {
             for (int i = 0; i < jsonArrayActivities.length(); i++) {
                 JSONObject jsonObjectActivity = jsonArrayActivities.getJSONObject(i);
 
-                if (jsonObjectActivity.getBoolean("accepted")) {
+                if (jsonObjectActivity.getBoolean("accepted")){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
                     activity.setName(jsonObjectActivity.getString("name"));
@@ -55,7 +55,7 @@ public class JsonHelper {
             for (int i = 0; i < jsonArrayActivities.length(); i++) {
                 JSONObject jsonObjectActivity = jsonArrayActivities.getJSONObject(i);
 
-                if (!jsonObjectActivity.getBoolean("accepted")) {
+                if (!jsonObjectActivity.getBoolean("accepted")){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
                     activity.setName(jsonObjectActivity.getString("name"));
@@ -84,16 +84,16 @@ public class JsonHelper {
             jsonObjectActivity.put("name", activity.getName());
             jsonObjectActivity.put("date", activity.getDate());
             jsonObjectActivity.put("address", activity.getAddress());
-            jsonObjectActivity.put("price", activity.getPrice() + "");
-            jsonObjectActivity.put("amountOfStudents", activity.getAmountOfStudents() + "");
+            jsonObjectActivity.put("price", activity.getPrice()+"");
+            jsonObjectActivity.put("amountOfStudents", activity.getAmountOfStudents()+"");
             jsonObjectActivity.put("description", activity.getDescription());
-            if (activity.isAccepted()) {
-                jsonObjectActivity.put("accepted", "1");
-            } else {
-                jsonObjectActivity.put("accepted", "0");
+            if (activity.isAccepted()){
+                jsonObjectActivity.put("accepted","1" );
+            } else{
+                jsonObjectActivity.put("accepted","0" );
             }
-            jsonObjectActivity.put("studentId", activity.getStudentId() + "");
-            jsonObjectActivity.put("campusId", activity.getCampusId() + "");
+            jsonObjectActivity.put("studentId", activity.getStudentId()+"");
+            jsonObjectActivity.put("campusId", activity.getCampusId()+"");
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
@@ -109,6 +109,7 @@ public class JsonHelper {
             student.setFirstName(jsonArrayStudent.getJSONObject(0).getString("firstName"));
             student.setLastName(jsonArrayStudent.getJSONObject(0).getString("lastName"));
             student.setPassword(jsonArrayStudent.getJSONObject(0).getString("password"));
+
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }

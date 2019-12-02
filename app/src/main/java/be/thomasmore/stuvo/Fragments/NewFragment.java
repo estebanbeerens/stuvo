@@ -12,10 +12,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -51,7 +49,7 @@ public class NewFragment extends Fragment {
 
         RootView = inflater.inflate(R.layout.fragment_new, container, false);
 
-        final Button button = (Button) RootView.findViewById(R.id.newFragment_button);
+        final Button button = (Button) RootView.findViewById(R.id.newFragmentButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 newFragmentrequestButton_onClick();

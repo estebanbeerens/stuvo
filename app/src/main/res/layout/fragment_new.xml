@@ -19,7 +19,6 @@
                 android:layout_margin="40dp"
                 android:orientation="vertical">
 
-
                 <!--     ACTIVITY NAME       -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newFragmentName"
@@ -34,9 +33,6 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
                 <!--     DATE       -->
                 <TextView
@@ -132,7 +128,7 @@
 
                 <!--     button     -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/newFragment_button"
+                    android:id="@+id/newFragmentButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/new_button"/>

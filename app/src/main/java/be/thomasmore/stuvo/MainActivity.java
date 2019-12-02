@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
@@ -26,11 +24,10 @@ import be.thomasmore.stuvo.Fragments.PreviousFragment;
 import be.thomasmore.stuvo.Fragments.RequestedFragment;
 
 
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,11 +106,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //    HIER ALLES VAN NEW REQUEST FRAGMENT   //
     //------------------------------------------//
 
-    public void newFragmentrequestButton_onClick(View v) {
-        NewFragment newFragment = new NewFragment();
-        newFragment.newFragmentrequestButton_onClick();
-    }
-
 
     //------------------------------------------//
     //    HIER ALLES VAN PREVIOUS  FRAGMENT     //
@@ -134,8 +126,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //    HIER ALLES VAN FRIENDS FRAGMENT       //
     //------------------------------------------//
 
-
-    public void toon(String tekst) {
-        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_LONG).show();
-    }
 }
