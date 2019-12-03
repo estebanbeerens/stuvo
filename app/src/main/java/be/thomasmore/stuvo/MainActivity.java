@@ -30,9 +30,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     private int studentId;
-    private String studentName;
+    private String studentName, firstName, lastName;
 
+    Bundle bundle = new Bundle();
     NewFragment newFragment = new NewFragment();
+    NewFragment requestedFragment = new NewFragment();
+    NewFragment previousFragment = new NewFragment();
+    NewFragment friendsFragment = new NewFragment();
+    NewFragment homeFragment = new NewFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +58,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         studentId = Integer.parseInt(getIntent().getLongExtra("studentId", 0)+"");
         studentName = getIntent().getStringExtra("username");
+        firstName = getIntent().getStringExtra("firstName");
+        lastName = getIntent().getStringExtra("lastName");
 
-
-        Bundle bundle = new Bundle();
         bundle.putString("username", studentName);
         bundle.putInt("studentId", studentId);
+        bundle.putString("firstName", firstName);
+        bundle.putString("lastName", lastName);
 
-        newFragment.setArguments(bundle);
+
 
         Log.e("666666", savedInstanceState + "");
         if (savedInstanceState == null) {
@@ -76,23 +83,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 Log.e("666666", "Home" + "");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                homeFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
                 break;
             case R.id.nav_friends:
                 Log.e("666666", "Friends" + "");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FriendsFragment()).commit();
+                friendsFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, friendsFragment).commit();
                 break;
             case R.id.nav_new:
                 Log.e("666666", "New" + "");
+                newFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                 break;
             case R.id.nav_previous:
                 Log.e("666666", "Previous" + "");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PreviousFragment()).commit();
+                previousFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, previousFragment).commit();
                 break;
             case R.id.nav_requested:
                 Log.e("666666", "Requested" + "");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RequestedFragment()).commit();
+                requestedFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, requestedFragment).commit();
                 break;
             case R.id.nav_logout:
                 Log.e("666666", "Logout" + "");
