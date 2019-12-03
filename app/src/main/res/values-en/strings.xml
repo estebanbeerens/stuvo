@@ -24,7 +24,12 @@
 
     <string name="home_developers">Developers</string>
     <string name="home_application">Application</string>
-    <string name="home_manual">Manual</string>
+    <string name="home_application_desc">
+        The utility of this application is to make requesting new activities at Stuvo easier.\n\nWhen requesting new activities in the past, there was always a lot of paperwork that came along with it, we wanted to
+        make it easier with this application.\n\nSadly, we weren\'t able to make the application for Stuvo itself, as their demands were way too heigh for the scope of
+        this project.
+    </string>
+
 
     <string name="new_name">Name</string>
     <string name="new_date">Date</string>

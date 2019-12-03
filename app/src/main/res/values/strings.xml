@@ -23,8 +23,12 @@
     <string name="menu_logout">Uitloggen</string>
 
     <string name="home_developers">Ontwikkelaars</string>
-    <string name="home_application">Applicatie</string>
-    <string name="home_manual">Handleiding</string>
+    <string name="home_application">De applicatie</string>
+    <string name="home_application_desc">
+        Het nut van deze applicatie is om het aanvragen van activiteiten bij Stuvo te vergemakelijken.\n\nBij het aanvragen van deze activiteiten kwam er altijd erg veel papierwerk bij te zien en wij wouden met deze
+        applicatie vergemakelijken.\n\nJammer genoeg konden we de applicatie niet maken voor Stuvo zelf, omdat de vereisten die zij stelden te hoog waren
+        voor dit project.
+    </string>
 
     <string name="new_name">Naam</string>
     <string name="new_date">Datum</string>
