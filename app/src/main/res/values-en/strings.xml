@@ -22,9 +22,9 @@
     <string name="menu_friends">Friends</string>
     <string name="menu_logout">Log out</string>
 
-    <string name="home_tab_developers">Developers</string>
-    <string name="home_tab_application">Application</string>
-    <string name="home_tab_manual">Manual</string>
+    <string name="home_developers">Developers</string>
+    <string name="home_application">Application</string>
+    <string name="home_manual">Manual</string>
 
     <string name="new_name">Name</string>
     <string name="new_date">Date</string>
