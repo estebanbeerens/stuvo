@@ -1,5 +1,6 @@
 package be.thomasmore.stuvo.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -130,7 +131,12 @@ public class NewFragment extends Fragment {
 
         //CAMPUSID, STUDENTID AANPASSEN
         activity.setCampusId(Integer.parseInt(campus.getId()+""));
-        activity.setStudentId(1);
+
+        Intent intent = new Intent();
+        Bundle bundle = intent.getExtras();
+        int studentId = bundle.getInt("studentId");
+        activity.setStudentId(studentId);
+//        activity.setStudentId(1);
 
         return activity;
     }
