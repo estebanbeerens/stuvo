@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import be.thomasmore.stuvo.Fragments.FriendsFragment;
 import be.thomasmore.stuvo.Fragments.HomeFragment;
@@ -28,6 +29,10 @@ import be.thomasmore.stuvo.Fragments.RequestedFragment;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private int studentId;
+    private String studentName;
+
+    NewFragment newFragment = new NewFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
         toggle.syncState();
+
+        studentId = Integer.parseInt(getIntent().getLongExtra("studentId", 0)+"");
+        studentName = getIntent().getStringExtra("username");
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString("username", studentName);
+        bundle.putInt("studentId", studentId);
+
+        newFragment.setArguments(bundle);
 
         Log.e("666666", savedInstanceState + "");
         if (savedInstanceState == null) {
@@ -69,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_new:
                 Log.e("666666", "New" + "");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NewFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                 break;
             case R.id.nav_previous:
                 Log.e("666666", "Previous" + "");

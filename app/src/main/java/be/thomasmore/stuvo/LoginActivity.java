@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    //PHP student ophalen op username
+    //PHP student ophalen op usernameh
     private void validateStudentByUsername(String username) {
         HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
@@ -72,19 +73,14 @@ public class LoginActivity extends AppCompatActivity {
                     if(loginRight){
                         findViewById(R.id.login_error_nomatch).setVisibility(View.GONE);
 
-                        Bundle bundle = new Bundle();
-                        bundle.putLong("studentId", student.getId());
-                        bundle.putString("username", student.getNumber());
-//                        bundle.putString("studentPassword", student.getPassword());
-//                        bundle.putString("studentFirstName", student.getFirstName());
-//                        bundle.putString("studentLastName", student.getLastName());
-
+                        // doorverwijzen naar MAIN ACTIVITY  met STUDENT NAME  +ID
                         Intent intentLogin = new Intent(LoginActivity.this, MainActivity.class);
-//                        intentLogin.putExtra("login", bundle);
-                        intentLogin.putExtras(bundle);
+                        intentLogin.putExtra("studentId", student.getId());
+                        intentLogin.putExtra("username", student.getNumber());
                         setResult(RESULT_OK, intentLogin);
                         startActivity(intentLogin);
                         finish();
+
                     } else {
                         // Toon foutmelding als username juist is maar pass fout
                         findViewById(R.id.login_error_nomatch).setVisibility(View.VISIBLE);

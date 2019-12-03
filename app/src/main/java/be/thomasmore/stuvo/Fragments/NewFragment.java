@@ -29,6 +29,8 @@ import be.thomasmore.stuvo.Models.Activity;
 import be.thomasmore.stuvo.Models.Campus;
 import be.thomasmore.stuvo.R;
 
+import static android.app.Activity.RESULT_OK;
+
 public class NewFragment extends Fragment {
 
     private TextInputLayout inputLayoutName, inputLayoutAddress, inputLayoutPrice, inputLayoutAmountOfStudents, inputLayoutDescription, inputLayoutCampus;
@@ -40,15 +42,20 @@ public class NewFragment extends Fragment {
     private ArrayList<Campus> campusesFromDropdown = new ArrayList<Campus>();
 
     private Campus campus;
+    private View RootView;
 
-
-    private View RootView ;
+    private int studentId = 0;
+    private String studentName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FillCampusDropdown();
 
         RootView = inflater.inflate(R.layout.fragment_new, container, false);
+
+        Bundle bundle = getArguments();
+        studentName = bundle.getString("username");
+        studentId = bundle.getInt("studentId");
 
         final Button button = (Button) RootView.findViewById(R.id.newFragmentButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +64,11 @@ public class NewFragment extends Fragment {
             }
         });
 
-
         return RootView;
     }
+
+
+
 
     //------------------------------------------//
     //    HIER ALLES VAN NEW REQUEST FRAGMENT   //
@@ -132,9 +141,7 @@ public class NewFragment extends Fragment {
         //CAMPUSID, STUDENTID AANPASSEN
         activity.setCampusId(Integer.parseInt(campus.getId()+""));
 
-        Intent intent = new Intent();
-        Bundle bundle = intent.getExtras();
-        int studentId = bundle.getInt("studentId");
+
         activity.setStudentId(studentId);
 //        activity.setStudentId(1);
 
