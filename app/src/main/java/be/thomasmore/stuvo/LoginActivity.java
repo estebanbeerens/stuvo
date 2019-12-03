@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     public void checkLogin_onClick(View v) {
         Log.e("666666", inputName.getText() + " - Input username");
         Log.e("666666", inputPass.getText() + " - Input password");
-        name = inputName.getText().toString();
+        name = inputName.getText().toString().toLowerCase();
         pass = inputPass.getText().toString();
         validate();
     }
@@ -73,16 +73,17 @@ public class LoginActivity extends AppCompatActivity {
                         findViewById(R.id.login_error_nomatch).setVisibility(View.GONE);
 
                         Bundle bundle = new Bundle();
-                        bundle.putLong("id", student.getId());
+                        bundle.putLong("studentId", student.getId());
                         bundle.putString("username", student.getNumber());
-                        bundle.putString("password", student.getPassword());
-                        bundle.putString("firstName", student.getFirstName());
-                        bundle.putString("lastName", student.getLastName());
+//                        bundle.putString("studentPassword", student.getPassword());
+//                        bundle.putString("studentFirstName", student.getFirstName());
+//                        bundle.putString("studentLastName", student.getLastName());
 
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtras(bundle);
-                        setResult(RESULT_OK, intent);
-                        startActivity(intent);
+                        Intent intentLogin = new Intent(LoginActivity.this, MainActivity.class);
+//                        intentLogin.putExtra("login", bundle);
+                        intentLogin.putExtras(bundle);
+                        setResult(RESULT_OK, intentLogin);
+                        startActivity(intentLogin);
                         finish();
                     } else {
                         // Toon foutmelding als username juist is maar pass fout
