@@ -1,6 +1,7 @@
 package be.thomasmore.stuvo.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,11 +17,8 @@ import be.thomasmore.stuvo.Database.HttpReader;
 import be.thomasmore.stuvo.Database.JsonHelper;
 import be.thomasmore.stuvo.R;
 
-import android.widget.ArrayAdapter;
-
 import androidx.fragment.app.Fragment;
-
-import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.List;
 
@@ -78,10 +76,16 @@ public class RequestedFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Activity activity= activities.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putLong("activityId", activities.get(position).getId());
+                bundle.putInt("studentId", studentId);
+                bundle.putString("username", username);
 
-                Snackbar.make(view, activity.getName()+"\n"+activity.getDate()+" API: "+activity.getDescription(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+                RequestDetailFragment RDF = new RequestDetailFragment();
+                RDF.setArguments(bundle);
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, RDF).commit();
             }
         });
     }

@@ -1,8 +1,5 @@
 package be.thomasmore.stuvo.Models;
 
-
-import java.time.LocalDate;
-
 public class Activity {
     private long id;
     private String name;

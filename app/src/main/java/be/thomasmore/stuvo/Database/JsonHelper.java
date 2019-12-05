@@ -153,4 +153,31 @@ public class JsonHelper {
         }
         return campus;
     }
+
+    public Activity getActivity(String jsonTekst) {
+        Activity activity = new Activity();
+        try {
+            JSONArray jsonArrayActivity = new JSONArray(jsonTekst);
+
+            JSONObject jsonObjectActivity = jsonArrayActivity.getJSONObject(0);
+
+            activity.setId(jsonObjectActivity.getLong("id"));
+            activity.setName(jsonObjectActivity.getString("name"));
+            activity.setDate(jsonObjectActivity.getString("date"));
+            activity.setAddress(jsonObjectActivity.getString("address"));
+            activity.setPrice(jsonObjectActivity.getInt("price"));
+            activity.setAmountOfStudents(jsonObjectActivity.getInt("amountOfStudents"));
+            activity.setDescription(jsonObjectActivity.getString("description"));
+            activity.setCampusId(jsonObjectActivity.getInt("campusId"));
+            activity.setStudentId(jsonObjectActivity.getLong("studentId"));
+            if (jsonObjectActivity.getInt("accepted") == 0){
+                activity.setAccepted(false);
+            } else {
+                activity.setAccepted(true);
+            }
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return activity;
+    }
 }
