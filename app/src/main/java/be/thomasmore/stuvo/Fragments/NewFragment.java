@@ -46,6 +46,7 @@ public class NewFragment extends Fragment {
 
     private int studentId = 0;
     private String studentName;
+    private Bundle bundleSend = new Bundle();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,9 +54,14 @@ public class NewFragment extends Fragment {
 
         RootView = inflater.inflate(R.layout.fragment_new, container, false);
 
-        Bundle bundle = getArguments();
-        studentName = bundle.getString("username");
-        studentId = bundle.getInt("studentId");
+
+        //ophalen van data vna ingelogde student
+        Bundle bundleRecieve = getArguments();
+        studentName = bundleRecieve.getString("username");
+        studentId = bundleRecieve.getInt("studentId");
+
+        bundleSend.putString("username", studentName);
+        bundleSend.putInt("studentId", studentId);
 
         final Button button = (Button) RootView.findViewById(R.id.newFragmentButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -119,9 +125,10 @@ public class NewFragment extends Fragment {
 //
                 // ACTIVITY WEGSCHRIJVEN IN DB
                 postActivity(activity);
-
+                RequestedFragment requestedFragment = new RequestedFragment();
+                requestedFragment.setArguments(bundleSend);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container, new RequestedFragment()).commit();
+                ft.replace(R.id.fragment_container, requestedFragment).commit();
             }
         });
         httpReader.execute("https://beerensco.sinners.be/Maes/phpFiles/readCampusByName.php?name=\""+ inputCampus.getText().toString() +"\"");

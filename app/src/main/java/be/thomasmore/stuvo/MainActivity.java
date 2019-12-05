@@ -33,11 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String studentName, firstName, lastName;
 
     Bundle bundle = new Bundle();
-    NewFragment newFragment = new NewFragment();
-    NewFragment requestedFragment = new NewFragment();
-    NewFragment previousFragment = new NewFragment();
-    NewFragment friendsFragment = new NewFragment();
-    NewFragment homeFragment = new NewFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,26 +78,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 Log.e("666666", "Home" + "");
+
+                HomeFragment homeFragment = new HomeFragment();
                 homeFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
                 break;
             case R.id.nav_friends:
                 Log.e("666666", "Friends" + "");
+                FriendsFragment friendsFragment = new FriendsFragment();
                 friendsFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, friendsFragment).commit();
                 break;
             case R.id.nav_new:
                 Log.e("666666", "New" + "");
+                NewFragment newFragment = new NewFragment();
                 newFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                 break;
             case R.id.nav_previous:
                 Log.e("666666", "Previous" + "");
+                PreviousFragment previousFragment = new PreviousFragment();
                 previousFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, previousFragment).commit();
                 break;
             case R.id.nav_requested:
                 Log.e("666666", "Requested" + "");
+                RequestedFragment requestedFragment = new RequestedFragment();
                 requestedFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, requestedFragment).commit();
                 break;

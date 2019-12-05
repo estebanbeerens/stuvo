@@ -111,4 +111,14 @@ public class Activity {
     public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
+
+    @Override
+    public String toString () {
+        if (description.length() > 35){
+            String s = description;
+            return s.substring(0,35) + "...";
+        } else {
+            return description;
+        }
+    }
 }

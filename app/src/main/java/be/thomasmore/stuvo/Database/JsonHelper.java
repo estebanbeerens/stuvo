@@ -24,7 +24,7 @@ public class JsonHelper {
             for (int i = 0; i < jsonArrayActivities.length(); i++) {
                 JSONObject jsonObjectActivity = jsonArrayActivities.getJSONObject(i);
 
-                if (jsonObjectActivity.getBoolean("accepted")){
+                if (jsonObjectActivity.getInt("accepted") == 1){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
                     activity.setName(jsonObjectActivity.getString("name"));
@@ -34,7 +34,7 @@ public class JsonHelper {
                     activity.setAmountOfStudents(jsonObjectActivity.getInt("amountOfStudents"));
                     activity.setDescription(jsonObjectActivity.getString("description"));
                     activity.setCampusId(jsonObjectActivity.getInt("campusId"));
-                    activity.setAccepted(jsonObjectActivity.getBoolean("accepted"));
+                    activity.setAccepted(true);
                     activity.setStudentId(jsonObjectActivity.getInt("studentId"));
 
                     activities.add(activity);
@@ -55,7 +55,7 @@ public class JsonHelper {
             for (int i = 0; i < jsonArrayActivities.length(); i++) {
                 JSONObject jsonObjectActivity = jsonArrayActivities.getJSONObject(i);
 
-                if (!jsonObjectActivity.getBoolean("accepted")){
+                if (jsonObjectActivity.getInt("accepted") == 0){
                     Activity activity = new Activity();
                     activity.setId(jsonObjectActivity.getInt("id"));
                     activity.setName(jsonObjectActivity.getString("name"));
@@ -65,7 +65,7 @@ public class JsonHelper {
                     activity.setAmountOfStudents(jsonObjectActivity.getInt("amountOfStudents"));
                     activity.setDescription(jsonObjectActivity.getString("description"));
                     activity.setCampusId(jsonObjectActivity.getInt("campusId"));
-                    activity.setAccepted(jsonObjectActivity.getBoolean("accepted"));
+                    activity.setAccepted(false);
                     activity.setStudentId(jsonObjectActivity.getInt("studentId"));
 
                     activities.add(activity);
