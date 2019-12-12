@@ -63,12 +63,12 @@
         android:text="@string/login_button"
         android:onClick="checkLogin_onClick" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/cheat_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Cheat"
-        android:onClick="cheat_onClick"/>
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/cheat_login_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:text="Cheat"-->
+<!--        android:onClick="cheat_onClick"/>-->
 
 </LinearLayout>
