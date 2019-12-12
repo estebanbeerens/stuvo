@@ -11,7 +11,8 @@
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/ic_menu_friends"
-            android:title="@string/menu_friends" />
+            android:title="@string/menu_friends"
+            android:enabled="false" />
     </group>
 
     <group
