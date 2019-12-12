@@ -10,52 +10,69 @@
         android:layout_margin="15dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="@string/request_detail_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/requestDetailFragmentName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-
         <TextView
-            android:id="@+id/requestDetailFragmentDescrption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/requestDetailFragmentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginBottom="7dp"/>
 
         <TextView
             android:id="@+id/requestDetailFragmentDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="17sp"/>
 
         <TextView
             android:id="@+id/requestDetailFragmentAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
-            android:id="@+id/requestDetailFragmentPrice"
+            android:id="@+id/requestDetailFragmentDescrption"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"/>
 
-        <TextView
-            android:id="@+id/requestDetailFragmentAmountOfStudents"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
 
-        <TextView
-            android:id="@+id/requestDetailFragmentCampus"
+            <TextView
+                android:text="@string/request_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/requestDetailFragmentPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp">
 
+            <TextView
+                android:text="@string/request_detail_students"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/requestDetailFragmentAmountOfStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
