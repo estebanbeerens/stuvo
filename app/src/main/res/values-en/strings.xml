@@ -49,4 +49,7 @@
     <string name="err_msg_campus">No valid campus!</string>
 
     <string name="new_campus_hint">Type the first letter of your campus</string>
+
+    <string name="request_detail_price">Price (total):</string>
+    <string name="request_detail_students">Number of students:</string>
 </resources>

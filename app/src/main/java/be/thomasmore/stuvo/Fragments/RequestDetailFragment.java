@@ -69,7 +69,18 @@ public class RequestDetailFragment extends Fragment {
     }
     private void toonActivity(Activity activity) {
         Log.e("666", activity.getName()+"");
-       TextView tv = RootView.findViewById(R.id.requestDetailFragmentName);
-       tv.setText(activity.getName());
+        TextView nameTextView = RootView.findViewById(R.id.requestDetailFragmentName);
+        TextView dateTextView = RootView.findViewById(R.id.requestDetailFragmentDate);
+        TextView descTextView = RootView.findViewById(R.id.requestDetailFragmentDescrption);
+        TextView addressTextView = RootView.findViewById(R.id.requestDetailFragmentAddress);
+        TextView priceTextView = RootView.findViewById(R.id.requestDetailFragmentPrice);
+        TextView studentsTextView = RootView.findViewById(R.id.requestDetailFragmentAmountOfStudents);
+
+        nameTextView.setText(activity.getName()+"");
+        dateTextView.setText(activity.getDate()+"");
+        descTextView.setText(activity.getDescription()+"");
+        addressTextView.setText(activity.getAddress()+"");
+        priceTextView.setText("€ " + activity.getPrice());
+        studentsTextView.setText(activity.getAmountOfStudents()+"");
     }
 }

@@ -48,6 +48,6 @@
 
     <string name="new_campus_hint">Geef de eerste letters van je campus</string>
 
-    <string name="request_detail_name">Naam: </string>
-
+    <string name="request_detail_price">Prijs (totaal):</string>
+    <string name="request_detail_students">Aantal studenten:</string>
 </resources>
